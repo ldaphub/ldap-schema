@@ -1,0 +1,12 @@
+Template:       Package 1.0
+Vendor:         The Internet Engineering Task Force (IETF)
+Package:        draft-melnikov-sasl-auxprop-attrs-00.txt
+Version:        N/A
+Website:        http://www.ietf.org/
+License:        N/A
+Download URL:   http://tools.ietf.org/id/draft-melnikov-sasl-auxprop-attrs-00.txt
+Archive MD5:    c9cc47484f301c4a7d753ae1c26f68f8
+Archive SHA1:   8576b2a0dd65e158783d6194dc927cd590f2d0a1
+Archive Path:   N/A
+Original File:  draft-melnikov-sasl-auxprop-attrs-00.txt
+Schema File:    sasl-auxprop-attrs.schema

@@ -1,4 +1,4 @@
-Template:       1.0
+Template:       Package 1.0
 Vendor:         N/A
 Package:        N/A
 Version:        N/A
@@ -7,6 +7,3 @@ License:        N/A
 Download URL:   N/A
 Archive MD5:    N/A
 Archive SHA1:   N/A
-Archive Path:   N/A
-Original File:  N/A
-Schema File:    N/A

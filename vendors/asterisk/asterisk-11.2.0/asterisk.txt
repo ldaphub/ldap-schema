@@ -1,12 +1,5 @@
-Template:       1.0
-Vendor:         Asterisk
-Package:        Asterisk
-Version:        11.2.0
-Website:        http://www.asterisk.org/
-License:        GNU General Public License version 2
-Download URL:   http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-11.2.0.tar.gz    
-Archive MD5:    3d3da6016e3b238cd7ea3bf0df51403d
-Archive SHA1:   5aa9a363593198a9cdbeacc78ed83b2b450a11f3
+Template:       Schema Info 1.0
+Package Info:   vendors/asterisk/asterisk-11.2.0/package.txt
 Archive Path:   asterisk-11.2.0/contrib/scripts/asterisk.ldap-schema
 Original File:  vendors/asterisk/asterisk-11.2.0/asterisk.ldap-schema
 Schema File:    vendors/asterisk/asterisk-11.2.0/asterisk.schema
