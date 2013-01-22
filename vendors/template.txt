@@ -1,3 +1,4 @@
+Template:       1.0
 Vendor:         N/A
 Package:        N/A
 Version:        N/A

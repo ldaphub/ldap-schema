@@ -1,3 +1,4 @@
+Template:       1.0
 Vendor:         Asterisk
 Package:        Asterisk
 Version:        11.2.0
