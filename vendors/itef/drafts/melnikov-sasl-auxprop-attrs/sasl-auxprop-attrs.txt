@@ -1,5 +1,5 @@
 Template:       1.0
-Package Info:   vendors/itef/drafts/package.txt
+Package Info:   vendors/itef/drafts/melnikov-sasl-auxprop-attrs/package.txt
 Archive Path:   N/A
 Original File:  draft-melnikov-sasl-auxprop-attrs-00.txt
 Schema File:    sasl-auxprop-attrs.schema

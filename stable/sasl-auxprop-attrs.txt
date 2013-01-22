@@ -1,1 +1,1 @@
-../vendors/itef/drafts/sasl-auxprop-attrs.txt
+../vendors/itef/drafts/melnikov-sasl-auxprop-attrs/sasl-auxprop-attrs.txt
