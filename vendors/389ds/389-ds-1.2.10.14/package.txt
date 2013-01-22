@@ -1,0 +1,13 @@
+Template:       Package 1.0
+Vendor:         389 Directory Server
+Package:        389 Directory Server
+Version:        1.3.0.2
+Website:        http://port389.org/
+License:        GNU General Public License Version 2
+Download URL:   http://port389.org/sources/389-ds-base-1.3.0.2.tar.bz2
+Archive MD5:    8874f44cc6a5f0e0787bdb1bc4085fed
+Archive SHA1:   3eac084493b8fbd6b920ccc94d8edf8d57003609
+Package Info:   
+Archive Path:   389-ds-base-1.3.0.2/ldap/schema/
+Original File:  N/A
+Schema File:    N/A

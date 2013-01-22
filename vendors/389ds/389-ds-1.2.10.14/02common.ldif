@@ -1,0 +1,187 @@
+#
+# BEGIN COPYRIGHT BLOCK
+# This Program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; version 2 of the License.
+# 
+# This Program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# this Program; if not, write to the Free Software Foundation, Inc., 59 Temple
+# Place, Suite 330, Boston, MA 02111-1307 USA.
+# 
+# In addition, as a special exception, Red Hat, Inc. gives You the additional
+# right to link the code of this Program with code not covered under the GNU
+# General Public License ("Non-GPL Code") and to distribute linked combinations
+# including the two, subject to the limitations in this paragraph. Non-GPL Code
+# permitted under this exception must only link to the code of this Program
+# through those well defined interfaces identified in the file named EXCEPTION
+# found in the source code files (the "Approved Interfaces"). The files of
+# Non-GPL Code may instantiate templates or use macros or inline functions from
+# the Approved Interfaces without causing the resulting work to be covered by
+# the GNU General Public License. Only Red Hat, Inc. may make changes or
+# additions to the list of Approved Interfaces. You must obey the GNU General
+# Public License in all respects for all of the Program code and other code used
+# in conjunction with the Program except the Non-GPL Code covered by this
+# exception. If you modify this file, you may extend this exception to your
+# version of the file, but you are not obligated to do so. If you do not wish to
+# provide this exception without modification, you must delete this exception
+# statement from your version and license this file solely under the GPL without
+# exception. 
+# 
+# 
+# Copyright (C) 2001 Sun Microsystems, Inc. Used by permission.
+# Copyright (C) 2005 Red Hat, Inc.
+# All rights reserved.
+# END COPYRIGHT BLOCK
+#
+#
+# Core schema, highly recommended but not required to start the Directory Server itself.
+#
+dn: cn=schema
+#
+# attributes
+#
+attributeTypes: ( 2.16.840.1.113730.3.1.5 NAME 'changeNumber' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.6 NAME 'targetDn' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.7 NAME 'changeType' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.8 NAME 'changes' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.5 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.9 NAME 'newRdn' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.10 NAME 'deleteOldRdn' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.11 NAME 'newSuperior' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.34 NAME 'ref' DESC 'LDAP referrals attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'LDAPv3 referrals Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.36 NAME 'nsLicensedFor' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.37 NAME 'nsLicenseStartTime' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.38 NAME 'nsLicenseEndTime' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.70 NAME 'serverRoot' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.71 NAME 'serverProductName' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.72 NAME 'serverVersionNumber' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.73 NAME 'installationTimeStamp' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.74 NAME 'administratorContactInfo' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.75 NAME 'adminUrl' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.76 NAME 'serverHostName' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Administration Services' )
+attributeTypes: ( 2.16.840.1.113730.3.1.77 NAME 'changeTime' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.91 NAME 'passwordExpirationTime' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.92 NAME ( 'passwordExpWarned' 'pwdExpirationWarned' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.93 NAME 'passwordRetryCount' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.94 NAME 'retryCountResetTime' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.95 NAME 'accountUnlockTime' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.96 NAME ( 'passwordHistory' 'pwdHistory' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.5 USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.97 NAME ( 'passwordMaxAge' 'pwdMaxAge' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.98 NAME 'passwordExp' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.99 NAME ( 'passwordMinLength' 'pwdMinLength' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.100 NAME 'passwordKeepHistory' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.101 NAME ( 'passwordInHistory' 'pwdInHistory' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.102 NAME ( 'passwordChange' 'pwdAllowUserChange' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.103 NAME ( 'passwordCheckSyntax' 'pwdCheckSyntax' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.104 NAME ( 'passwordWarning' 'pwdExpireWarning' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.105 NAME ( 'passwordLockout' 'pwdLockOut' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.106 NAME ( 'passwordMaxFailure' 'pwdMaxFailure' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.107 NAME 'passwordResetDuration' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.108 NAME 'passwordUnlock' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.109 NAME ( 'passwordLockoutDuration' 'pwdLockoutDuration' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.997 NAME 'pwdpolicysubentry' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.998 NAME ( 'passwordGraceUserTime' 'pwdGraceUserTime' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.999 NAME ( 'passwordGraceLimit' 'pwdGraceLoginLimit' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2075 NAME ( 'passwordMinDigits' 'pwdMinDigits' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2076 NAME ( 'passwordMinAlphas' 'pwdMinAlphas' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2077 NAME ( 'passwordMinUppers' 'pwdMinUppers' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2078 NAME ( 'passwordMinLowers' 'pwdMinLowers' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2079 NAME ( 'passwordMinSpecials' 'pwdMinSpecials' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2080 NAME ( 'passwordMin8bit' 'pwdMin8bit' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2081 NAME ( 'passwordMaxRepeats' 'pwdMaxRepeats' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2082 NAME ( 'passwordMinCategories' 'pwdMinCategories' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2083 NAME ( 'passwordMinTokenLength' 'pwdMinTokenLength' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2140 NAME ( 'passwordTrackUpdateTime' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.198 NAME 'memberURL' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.199 NAME 'memberCertificateDescription' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.207 NAME 'vlvBase' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.208 NAME 'vlvScope' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.209 NAME 'vlvFilter' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.210 NAME 'vlvSort' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.213 NAME 'vlvEnabled' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.214 NAME 'passwordAllowChangeTime' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.219 NAME 'vlvUses' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.220 NAME ( 'passwordMustChange' 'pwdMustChange' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.221 NAME 'passwordStorageScheme' DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.222 NAME ( 'passwordMinAge' 'pwdMinAge' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.223 NAME ( 'passwordResetFailureCount' 'pwdFailureCountInterval' ) DESC 'Netscape defined password policy attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.550 NAME 'cosAttribute' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.551 NAME 'cosspecifier' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.552 NAME 'costargettree' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.553 NAME 'costemplatedn' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.35 NAME 'changeLog' DESC 'the distinguished name of the entry which contains the set of entries comprising this servers changelog' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Changelog Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.200 NAME 'changeLogMaximumAge' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.201 NAME 'changeLogMaximumSize' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.205 NAME 'changeLogMaximumConcurrentWrites' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 1.3.6.1.4.1.250.1.60 NAME ( 'ttl' 'timeToLive' ) DESC 'time to live in seconds for cached objects' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'LDAP Caching Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.612 NAME 'generation' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.5.18.9 NAME 'hasSubordinates' DESC 'if TRUE, subordinate entries may exist' EQUALITY booleanMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUE NO-USER-MODIFICATION USAGE directoryOperation X-ORIGIN 'numSubordinates Internet Draft' )
+attributeTypes: ( 2.16.840.1.113730.3.1.569 NAME 'cosPriority' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.570 NAME 'nsLookThroughLimit' DESC 'Binder-based search operation look through limit (candidate entries)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.571 NAME 'nsSizeLimit' DESC 'Binder-based search operation size limit (entries)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.572 NAME 'nsTimeLimit' DESC 'Binder-based search operation time limit (seconds)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.573 NAME 'nsIdleTimeout' DESC 'Binder-based connection idle timeout (seconds)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2106 NAME 'nsIDListScanLimit' DESC 'Binder-based search operation ID list scan limit (candidate entries)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN '389' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2107 NAME 'nsPagedSizeLimit' DESC 'Binder-based simple paged search operation size limit' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN '389' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2108 NAME 'nsPagedLookThroughLimit' DESC 'Binder-based simple paged search operation look through limit' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN '389' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2109 NAME 'nsPagedIDListScanLimit' DESC 'Binder-based simple paged search operation ID list scan limit' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE USAGE directoryOperation X-ORIGIN '389' )
+attributeTypes: ( 2.16.840.1.113730.3.1.574 NAME 'nsRole' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 NO-USER-MODIFICATION USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.575 NAME 'nsRoleDN' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.576 NAME 'nsRoleFilter' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.577 NAME 'cosIndirectSpecifier' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.610 NAME 'nsAccountLock' DESC 'Operational attribute for Account Inactivation' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.613 NAME 'copiedFrom' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15  SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.614 NAME 'copyingFrom' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15  SINGLE-VALUE USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.803 NAME 'nsBackendSuffix' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.973 NAME 'nsds5ReplConflict' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 USAGE directoryOperation X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1000 NAME 'nsds7WindowsReplicaSubtree' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1001 NAME 'nsds7DirectoryReplicaSubtree' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1002 NAME 'nsds7NewWinUserSyncEnabled' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1003 NAME 'nsds7NewWinGroupSyncEnabled' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1004 NAME 'nsds7WindowsDomain' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1005 NAME 'nsds7DirsyncCookie' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.5 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1099 NAME 'winSyncInterval' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.1100 NAME 'oneWaySync' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2139 NAME 'winSyncMoveAction' DESC 'Netscape defined attribute type'  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 1.3.6.1.1.4 NAME 'vendorName' EQUALITY 1.3.6.1.4.1.1466.109.114.1 SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE NO-USER-MODIFICATION USAGE dSAOperation X-ORIGIN 'RFC 3045' )
+attributeTypes: ( 1.3.6.1.1.5 NAME 'vendorVersion' EQUALITY 1.3.6.1.4.1.1466.109.114.1 SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE NO-USER-MODIFICATION USAGE dSAOperation X-ORIGIN 'RFC 3045' )
+attributeTypes: ( 2.16.840.1.113730.3.1.3023 NAME 'nsViewFilter' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2063 NAME 'nsEncryptionAlgorithm' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2093 NAME 'nsslapd-changelogsuffix' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Netscape' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2094 NAME 'nsslapd-parent-suffix' DESC 'Netscape defined attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 X-ORIGIN 'Netscape' )
+#
+# objectclasses:
+#
+objectClasses: ( 2.16.840.1.113730.3.2.31 NAME 'groupOfCertificates' DESC 'Netscape defined objectclass' SUP top MUST ( cn ) MAY ( memberCertificateDescription $ businessCategory $ description $ o $ ou $ owner $ seeAlso ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.33 NAME 'groupOfURLs' DESC 'Netscape defined objectclass' SUP top MUST ( cn ) MAY ( memberURL $ businessCategory $ description $ o $ ou $ owner $ seeAlso ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.35 NAME 'LDAPServer' DESC 'Netscape defined objectclass' SUP top MUST ( cn ) MAY ( description $ l $ ou $ seeAlso $ generation $ changeLogMaximumAge $ changeLogMaximumSize ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 1.3.6.1.4.1.250.3.18 NAME 'cacheObject' DESC 'object that contains the TTL (time to live) attribute type' SUP top MAY ( ttl ) X-ORIGIN 'LDAP Caching Internet Draft' )
+objectClasses: ( 2.16.840.1.113730.3.2.10 NAME 'netscapeServer' DESC 'Netscape defined objectclass' SUP top MUST ( cn ) MAY ( description $ serverRoot $ serverProductName $ serverVersionNumber $ installationTimeStamp $ administratorContactInfo $ userpassword $ adminURL $ serverHostName ) X-ORIGIN 'Netscape Administration Services' )
+objectClasses: ( 2.16.840.1.113730.3.2.7 NAME 'nsLicenseUser' DESC 'Netscape defined objectclass' SUP top MAY ( nsLicensedFor $ nsLicenseStartTime $ nsLicenseEndTime ) X-ORIGIN 'Netscape Administration Services' )
+objectClasses: ( 2.16.840.1.113730.3.2.1 NAME 'changeLogEntry' DESC 'LDAP changelog objectclass' SUP top MUST ( targetdn $ changeTime $ changenumber $ changeType ) MAY ( changes $ newrdn $ deleteoldrdn $ newsuperior ) X-ORIGIN 'Changelog Internet Draft' )
+objectClasses: ( 2.16.840.1.113730.3.2.6 NAME 'referral' DESC 'LDAP referrals objectclass' SUP top MAY ( ref ) X-ORIGIN 'LDAPv3 referrals Internet Draft' )
+objectClasses: ( 2.16.840.1.113730.3.2.12 NAME 'passwordObject' DESC 'Netscape defined password policy objectclass' SUP top MAY ( pwdpolicysubentry $ passwordExpirationTime $ passwordExpWarned $ passwordRetryCount $ retryCountResetTime $ accountUnlockTime $ passwordHistory $ passwordAllowChangeTime $ passwordGraceUserTime ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.13 NAME 'passwordPolicy' DESC 'Netscape defined password policy objectclass' SUP top MAY ( passwordMaxAge $ passwordExp $ passwordMinLength $ passwordKeepHistory $ passwordInHistory $ passwordChange $ passwordWarning $ passwordLockout $ passwordMaxFailure $ passwordResetDuration $ passwordUnlock $ passwordLockoutDuration $ passwordCheckSyntax $ passwordMustChange $ passwordStorageScheme $ passwordMinAge $ passwordResetFailureCount $ passwordGraceLimit $ passwordMinDigits $ passwordMinAlphas $ passwordMinUppers $ passwordMinLowers $ passwordMinSpecials $ passwordMin8bit $ passwordMaxRepeats $ passwordMinCategories $ passwordMinTokenLength $ passwordTrackUpdateTime ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.30 NAME 'glue' DESC 'Netscape defined objectclass' SUP top X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.32 NAME 'netscapeMachineData' DESC 'Netscape defined objectclass' SUP top X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.38 NAME 'vlvSearch' DESC 'Netscape defined objectclass' SUP top MUST ( cn $ vlvBase $ vlvScope $ vlvFilter ) MAY ( multiLineDescription ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.42 NAME 'vlvIndex' DESC 'Netscape defined objectclass' SUP top MUST ( cn $ vlvSort ) MAY ( vlvEnabled $ vlvUses ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.84 NAME 'cosDefinition' DESC 'Netscape defined objectclass' SUP top MAY ( costargettree $ costemplatedn $ cosspecifier $ cosattribute $ aci $ cn $ uid ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.93 NAME 'nsRoleDefinition' DESC 'Netscape defined objectclass' SUP ldapSubEntry MAY ( description ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.94 NAME 'nsSimpleRoleDefinition' DESC 'Netscape defined objectclass' SUP nsRoleDefinition X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.95 NAME 'nsComplexRoleDefinition' DESC 'Netscape defined objectclass' SUP nsRoleDefinition X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.96 NAME 'nsManagedRoleDefinition' DESC 'Netscape defined objectclass' SUP nsSimpleRoleDefinition X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.97 NAME 'nsFilteredRoleDefinition' DESC 'Netscape defined objectclass' SUP nsComplexRoleDefinition MUST ( nsRoleFilter ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.98 NAME 'nsNestedRoleDefinition' DESC 'Netscape defined objectclass' SUP nsComplexRoleDefinition MUST ( nsRoleDN ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.99 NAME 'cosSuperDefinition' DESC 'Netscape defined objectclass' SUP ldapSubEntry MUST (cosattribute) MAY ( description ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.100 NAME 'cosClassicDefinition' DESC 'Netscape defined objectclass' SUP cosSuperDefinition MAY ( cosTemplateDn $ cosspecifier ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.101 NAME 'cosPointerDefinition' DESC 'Netscape defined objectclass' SUP cosSuperDefinition MAY ( cosTemplateDn ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.102 NAME 'cosIndirectDefinition' DESC 'Netscape defined objectclass' SUP cosSuperDefinition MAY ( cosIndirectSpecifier ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.503 NAME 'nsDSWindowsReplicationAgreement' DESC 'Netscape defined objectclass' SUP top MUST ( cn ) MAY ( nsDS5ReplicaHost $ nsDS5ReplicaPort $ nsDS5ReplicaTransportInfo $ nsDS5ReplicaBindDN $ nsDS5ReplicaCredentials $ nsDS5ReplicaBindMethod $ nsDS5ReplicaRoot $ nsDS5ReplicatedAttributeList $ nsDS5ReplicaUpdateSchedule $ nsds5BeginReplicaRefresh $ description $ nsds50ruv $ nsruvReplicaLastModified $ nsds5ReplicaTimeout $ nsds5replicaChangesSentSinceStartup $ nsds5replicaLastUpdateEnd $ nsds5replicaLastUpdateStart $ nsds5replicaLastUpdateStatus $ nsds5replicaUpdateInProgress $ nsds5replicaLastInitEnd $ nsds5replicaLastInitStart $ nsds5replicaLastInitStatus $ nsds5debugreplicatimeout $ nsds5replicaBusyWaitTime $ nsds5replicaSessionPauseTime $ nsds7WindowsReplicaSubtree $ nsds7DirectoryReplicaSubtree $ nsds7NewWinUserSyncEnabled $ nsds7NewWinGroupSyncEnabled $ nsds7WindowsDomain $ nsds7DirsyncCookie $ winSyncInterval $ oneWaySync $ winSyncMoveAction $ nsds5ReplicaEnabled ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.128 NAME 'costemplate' DESC 'Netscape defined objectclass' SUP top MAY ( cn $ cospriority ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.304 NAME 'nsView' DESC 'Netscape defined objectclass' SUP top AUXILIARY MAY ( nsViewFilter $ description ) X-ORIGIN 'Netscape Directory Server' )
+objectClasses: ( 2.16.840.1.113730.3.2.316 NAME 'nsAttributeEncryption' DESC 'Netscape defined objectclass' SUP top MUST ( cn $ nsEncryptionAlgorithm ) X-ORIGIN 'Netscape Directory Server' )
+attributeTypes: ( 2.16.840.1.113730.3.1.2085 NAME 'isReplicated' DESC 'Changelog attribute type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 X-ORIGIN 'Netscape Directory Server' )

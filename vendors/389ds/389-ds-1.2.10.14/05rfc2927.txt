@@ -1,0 +1,5 @@
+Template:       Package 1.0
+Package Info:   vendors/389ds/389-ds-1.2.10.14/package.txt
+Archive Path:   389-ds-base-1.3.0.2/ldap/schema/05rfc2927.ldif
+Original File:  05rfc2927.ldif
+Schema File:    N/A
