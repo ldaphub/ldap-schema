@@ -1,0 +1,6 @@
+#
+#  OID Mappings
+#
+objectIdentifier BindleBinariesOID                   1.3.6.1.4.1.27893.1.2
+objectIdentifier AutoOID                             BindleBinariesOID:1
+#

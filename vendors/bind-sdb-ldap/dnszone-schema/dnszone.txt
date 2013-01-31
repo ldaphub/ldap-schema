@@ -1,0 +1,5 @@
+Template:       Schema Info 1.0
+Package Info:   vendors/bind-sdb-ldap/dnszone-schema/package.txt
+Archive Path:   n/a
+Original File:  dnszone-schema.txt
+Schema File:    dnszone.schema

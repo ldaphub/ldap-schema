@@ -1,0 +1,9 @@
+Template:       Package 1.0
+Vendor:         Bind 9 LDAP SDB Back-end
+Package:        dnszone-schema
+Version:        n/a
+Website:        http://bind9-ldap.bayour.com/
+License:        n/a
+Download URL:   http://bind9-ldap.bayour.com/dnszone-schema.txt
+Archive MD5:    49fe799c6eca54ae227b22d57ebc1145
+Archive SHA1:   9b7d5fb999ec017e76d1d0904b49b967ac49fac6

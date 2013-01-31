@@ -1,0 +1,1 @@
+../vendors/bind-sdb-ldap/dnszone-schema/dnszone.txt
