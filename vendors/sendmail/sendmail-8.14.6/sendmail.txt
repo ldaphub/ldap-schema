@@ -1,0 +1,5 @@
+Template:       Schema Info 1.0
+Package Info:   vendors/sendmail/sendmail-8.14.6/package.txt
+Archive Path:   sendmail-8.14.6/cf/sendmail.schema
+Original File:  vendors/sendmail/sendmail-8.14.6/sendmail.schema
+Schema File:    vendors/sendmail/sendmail-8.14.6/sendmail.schema

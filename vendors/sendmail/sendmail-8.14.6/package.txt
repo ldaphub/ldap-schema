@@ -1,0 +1,9 @@
+Template:       Package 1.0
+Vendor:         Sendmail
+Package:        Sendmail
+Version:        8.14.6
+Website:        http://www.sendmail.com/
+License:
+Download URL:   ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.14.6.tar.gz
+Archive MD5:    9eeed3d1baecbf4e17d829d2ec005553
+Archive SHA1:   0984581a1cdd034d2cb17cc89761bae9093845bf
