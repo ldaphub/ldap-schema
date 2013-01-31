@@ -1,0 +1,5 @@
+Template:       1.0
+Package Info:   vendors/itef/drafts/lachman-laser-ldap-mail-routing/package.txt
+Archive Path:   N/A
+Original File:  draft-lachman-laser-ldap-mail-routing-02.txt
+Schema File:    ldap-mail-routing.schema

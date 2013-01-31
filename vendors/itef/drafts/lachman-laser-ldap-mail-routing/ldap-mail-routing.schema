@@ -1,0 +1,219 @@
+# INTERNET-DRAFT                                                H. Lachman
+# Intended Category: Informational           Netscape Communications Corp.
+# Filename: draft-lachman-laser-ldap-mail-routing-02.txt        G. Shapiro
+#                                                           Sendmail, Inc.
+# Expires: July 2001                                          January 2001
+#
+#                  LDAP Schema for Intranet Mail Routing
+#
+# Copyright Notice
+#
+#    Copyright (C) The Internet Society (1999-2001).  All Rights Reserved.
+#
+# Abstract
+#
+#    This document defines an LDAP [1] object class called
+#    'inetLocalMailRecipient' and associated attributes that provide a way
+#    to designate an LDAP entry as one that represents a local (intra-
+#    organizational) email recipient, to specify the recipient's email
+#    address(es), and to provide routing information pertinent to the
+#    recipient.  This is intended to support SMTP [2] message transfer
+#    agents in routing RFC 822-based email [3] within a private enterprise
+#    only, and is not to be used in the process of routing email across
+#    the public Internet.
+#
+#  4.2  Address Attribute
+#
+attributetype ( 2.16.840.1.113730.3.1.13
+           NAME 'mailLocalAddress'
+           DESC 'RFC 822 email address of this recipient'
+           EQUALITY caseIgnoreIA5Match
+           SYNTAX '1.3.6.1.4.1.1466.115.121.1.26{256}'
+       )
+#
+#    The 'mailLocalAddress' attribute is used to specify email addresses,
+#    for the recipient; for example, "nickname@example.com".  The address
+#    conforms to the syntax of an 'addr-spec' as defined in [3].
+#
+#    The 'mailLocalAddress' attribute MUST contain all local addresses
+#    that represent each recipient of the target MTA.  Commonly, the value
+#    of the 'mail' attribute should also be among the addresses listed in
+#    the 'mailLocalAddress' attribute if it is expected to be used for
+#    LDAP mail routing.
+#
+#    When determining the disposition of a given message, MTAs using LDAP
+#    (directly or indirectly) to route mail MUST search for an entry with
+#    object class 'inetLocalMailRecipient' and a 'mailLocalAddress'
+#    attribute matching the message's recipient address.  If exactly one
+#    matching entry is found, MTAs MUST regard the message as being
+#    addressed to the entity that is represented by the directory entry.
+#
+#    If multiple entries are found, the results of the lookup MUST be
+#    treated as unsuccessful and should be handled by the MTA in some
+#    locally-appropriate way, such as returning a DSN [10] to the sender.
+#
+#    If there is no match found by the above, MTAs SHOULD have the
+#    capability of searching for the recipient domain against the
+#    'mailLocalAddress' attribute using the "wildcard domain" address
+#    "@<full-local-domain>" , e.g., "@example.org".  In other words, if
+#    mail arrives for "someone@example.org", and there is no recipient
+#    with that address specified as 'mailLocalAddress', then the recipient
+#    with the wildcard domain address should receive the mail.
+#
+#    MTAs MAY do other searches but only after the above are done.
+#
+#    In short, the address attribute 'mailLocalAddress' may be used by an
+#    LDAP entry to answer the question "what is/are this account's email
+#    address(es)?"
+#
+#  4.3  Routing Attributes
+#
+attributetype ( 2.16.840.1.113730.3.1.18
+           NAME 'mailHost'
+           DESC 'fully-qualified hostname of the MTA that is the final
+               SMTP destination of messages to this recipient'
+           EQUALITY caseIgnoreIA5Match
+           SYNTAX '1.3.6.1.4.1.1466.115.121.1.26{256}'
+           SINGLE-VALUE
+       )
+#
+#    The 'mailHost' attribute indicates which SMTP MTA considers the
+#    recipient's mail to be locally handleable.  This information can be
+#    used for routing, in that an intermediary MTA may take it to be the
+#    destination for messages addressed to this recipient.  Normal mail
+#    routing requirements (i.e., use of MX records [5]) apply to the
+#    specified hostname unless overridden by local conventions.  In other
+#    words, the mail should be sent to the specified host without changing
+#    the recipient address.  The hostname is specified as a
+#    fully-qualified DNS hostname with no trailing dot (e.g.,
+#    "host42.example.com").
+#
+#    If the 'inetLocalMailRecipient' object class is present, the
+#    'mailHost' attribute for each entry MAY contain a value.  If it does,
+#    that value MUST be the fully qualified name of the server containing
+#    the host MTA for this person.  If 'mailHost' is present then it MUST
+#    be taken as the host for this user, and all mail to this user MUST be
+#    routed to this machine.
+#
+attributetype ( 2.16.840.1.113730.3.1.47
+           NAME 'mailRoutingAddress'
+           DESC 'RFC 822 address to use when routing messages to
+               the SMTP MTA of this recipient'
+           EQUALITY caseIgnoreIA5Match
+           SYNTAX '1.3.6.1.4.1.1466.115.121.1.26{256}'
+           SINGLE-VALUE
+       )
+#
+#    The 'mailRoutingAddress' attribute indicates a routing address for
+#    the recipient.  The address MUST conform to the syntax of an
+#    'addr-spec' in [3].  An intermediary MTA MUST use this information to
+#    route the message to the MTA that handles mail for this recipient,
+#    e.g., the envelope address MUST be rewritten to this value.  This is
+#    useful in cases where, for a given recipient, the target MTA prefers
+#    a particular address to appear as the recipient address in the SMTP
+#    envelope.  'mailRoutingAddress' MAY be used as an alternative to
+#    'mailHost', and is intended to have the same effect as 'mailHost'
+#    except that 'mailRoutingAddress' is an address for rewriting the
+#    envelope.  With 'mailHost', the envelope address either is not
+#    rewritten, or is rewritten according to implementation-specific rules
+#    and/or configuration.
+#
+#    If both 'mailHost' and 'mailRoutingAddress' are present, MTAs MUST
+#    interpret it to mean that messages are to be routed to the host
+#    indicated by 'mailHost', while rewriting the envelope as per
+#    'mailRoutingAddress'.  In theory, there could be peculiar cases where
+#    this is necessary, but this is not normally expected.
+#
+#    Absence of both 'mailHost' and 'mailRoutingAddress' MAY be considered
+#    an error, unless "location-independent" recipient types are supported
+#    by the various MTAs within the organization.  This would allow any
+#    MTA in the organization to handle the processing of mail for, say, a
+#    mailing list.  This presumes that the various MTAs all recognize the
+#    recipient type in question, suggesting a need to standardize
+#    recipient types that could be "location-independent".
+#
+#    In short, routing attributes may be used by an LDAP entry to answer
+#    the question "how should MTAs route mail to this account?"
+#    (analogous to using the sendmail "aliases" database for per-user
+#    routing within an organization).  This is in contrast with
+#    "forwarding"; forwarding and delivery options may be specified in an
+#    LDAP entry to answer the question "what happens to mail once it
+#    arrives at this account?", which may include forwarding to some other
+#    account within or outside the organization (analogous to using the
+#    sendmail ".forward" file).  Such options are outside the scope of the
+#    'inetLocalMailRecipient' schema definition.
+#
+#    The following possibilities exist as a result of an LDAP lookup on an
+#    address:
+#
+#         mailHost is     mailRoutingAddress is   Results in
+#         -----------     ---------------------   ----------
+#         set to a        set                     mail routed to
+#         "local" host                            mailRoutingAddress
+#
+#         set to a        not set                 delivered to
+#         "local" host                            original address
+#
+#         set to a        set                     relay to mailHost
+#         remote host                             using mailRoutingAddress
+#
+#         set to a        not set                 original address
+#         remote host                             relayed to mailHost
+#
+#         not set         set                     mail routed to
+#                                                 mailRoutingAddress
+#
+#         not set         not set                 error or
+#                                                 "location-independent"
+#
+#    The term "local" host above means the host specified is one that the
+#    local (target) MTA considers to be a local delivery.  The local MTA
+#    MAY rewrite the original address when mailRoutingAddress is not set
+#    if local conventions warrant the change.
+#
+#  4.1  The inetLocalMailRecipient Object Class
+#
+objectclass ( 2.16.840.1.113730.3.2.147
+           NAME 'inetLocalMailRecipient'
+           SUP top
+           AUXILIARY
+           MAY ( mailLocalAddress $
+               mailHost $ mailRoutingAddress
+           )
+       )
+#
+#    The 'inetLocalMailRecipient' object class signifies that the entry
+#    represents an entity within the organization that can receive SMTP
+#    mail, such as a mail user or a mailing list.  In any case of an entry
+#    containing the 'inetLocalMailRecipient' object class, attributes
+#    defined in this document MUST be interpreted as specified in this
+#    document.
+#
+# 10.  Full Copyright Statement
+#
+#    Copyright (C) The Internet Society (1999-2001).  All Rights Reserved.
+#
+#    This document and translations of it may be copied and furnished
+#    to others, and derivative works that comment on or otherwise
+#    explain it or assist in its implementation may be prepared, copied,
+#    published and distributed, in whole or in part, without
+#    restriction of any kind, provided that the above copyright notice
+#    and this paragraph are included on all such copies and derivative
+#    works.  However, this document itself may not be modified in any
+#    way, such as by removing the copyright notice or references to the
+#    Internet Society or other Internet organizations, except as needed
+#    for the purpose of developing Internet standards in which case the
+#    procedures for copyrights defined in the Internet Standards
+#    process must be followed, or as required to translate it into
+#    languages other than English.
+#
+#    The limited permissions granted above are perpetual and will not
+#    be revoked by the Internet Society or its successors or assigns.
+#
+#    This document and the information contained herein is provided on
+#    an "AS IS" basis and THE INTERNET SOCIETY AND THE INTERNET
+#    ENGINEERING TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR
+#    IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF
+#    THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+#    WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+#

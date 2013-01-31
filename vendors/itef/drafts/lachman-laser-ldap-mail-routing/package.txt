@@ -1,0 +1,12 @@
+Template:       Package 1.0
+Vendor:         The Internet Engineering Task Force (IETF)
+Package:        draft-lachman-laser-ldap-mail-routing-02.txt
+Version:        N/A
+Website:        http://www.ietf.org/
+License:        N/A
+Download URL:   http://tools.ietf.org/id/draft-lachman-laser-ldap-mail-routing-02.txt
+Archive MD5:    b885a1257bf8bc93ce604ac189454d1b
+Archive SHA1:   4fa9f684de98839b103b1eb12e1b29a755ab8531
+Archive Path:   N/A
+Original File:  draft-melnikov-sasl-auxprop-attrs-00.txt
+Schema File:    sasl-auxprop-attrs.schema
